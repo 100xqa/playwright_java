@@ -3,6 +3,7 @@ package testcases;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.microsoft.playwright.Browser;
@@ -18,7 +19,7 @@ public class MaximizingWindow {
 	static Page page = null;
 
 	public static void main(String[] args) {
-		launchBrowser("webkitheadless");
+		launchBrowser("chrome");
 		navigateURL();
 		closeBrowser();
 	}	
@@ -29,8 +30,8 @@ public class MaximizingWindow {
 		ArrayList<String> arguments = new ArrayList<String>();
 		arguments.add("--start-maximized");
 		switch(browserName) {
-		case "chrome" -> browser = playwright.chromium().launch(launchOptions.setChannel("chrome").setHeadless(false).setArgs(arguments));
-		case "edge" -> browser = playwright.chromium().launch(launchOptions.setChannel("msedge").setHeadless(false).setArgs(arguments));
+		case "chrome" -> browser = playwright.chromium().launch(launchOptions.setChannel("chrome").setExecutablePath(Paths.get("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")).setHeadless(false).setArgs(arguments));
+		case "edge" -> browser = playwright.chromium().launch(launchOptions.setChannel("msedge").setExecutablePath(Paths.get("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe")).setHeadless(false).setArgs(arguments));
 		case "firefox" -> browser = playwright.firefox().launch(launchOptions.setChannel("firefox").setHeadless(false).setArgs(arguments));
 		case "webkit" -> browser = playwright.webkit().launch(launchOptions.setChannel("webkit").setHeadless(false).setArgs(arguments));
 		case "chromeheadless" -> browser = playwright.chromium().launch(launchOptions.setChannel("chrome").setHeadless(true).setArgs(arguments));
