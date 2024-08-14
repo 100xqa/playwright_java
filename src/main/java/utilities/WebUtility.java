@@ -1,4 +1,4 @@
-package testcases;
+package utilities;
 
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
@@ -11,20 +11,14 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Playwright;
 
-public class MaximizingWindow {
+public class WebUtility {
 	
-	static Playwright playwright = null;
-	static Browser browser = null;
-	static BrowserContext browserContext = null;
-	static Page page = null;
-
-	public static void main(String[] args) {
-		launchBrowser("chrome");
-		navigateURL();
-		closeBrowser();
-	}	
+	public static Playwright playwright = null;
+	public static Browser browser = null;
+	public static BrowserContext browserContext = null;
+	public static Page page = null;
 	
-	private static void launchBrowser(String browserName) {
+	public static void launchBrowser(String browserName) {
 		playwright = Playwright.create();
 		LaunchOptions launchOptions = new BrowserType.LaunchOptions();
 		ArrayList<String> arguments = new ArrayList<String>();
@@ -43,13 +37,13 @@ public class MaximizingWindow {
 		page = browserContext.newPage();
 	}
 	
-	private static void navigateURL() {
-		page.navigate("http://way2automation.com");
+	public static void navigateURL(String url) {
+		page.navigate(url);
 		String title = page.title();
 		System.out.println(title);
 	}
 	
-	private static void closeBrowser() {
+	public static void closeBrowser() {
 		page.close();
 		browser.close();
 		playwright.close();

@@ -9,7 +9,7 @@ import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.BrowserType.LaunchPersistentContextOptions;
 import com.microsoft.playwright.Page;
 
-public class NonIncognitoTest {
+public class NonIncognitoBrowserTest {
 
 	public static void main(String[] args) {
 		Playwright playwright = Playwright.create();

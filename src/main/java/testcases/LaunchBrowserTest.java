@@ -10,7 +10,7 @@ import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-public class LaunchBrowser {
+public class LaunchBrowserTest {
 
 	public static void main(String[] args) {
 		try {
