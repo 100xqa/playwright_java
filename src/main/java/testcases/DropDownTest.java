@@ -10,7 +10,7 @@ import utilities.WebUtility;
 
 public class DropDownTest {
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		WebUtility.launchBrowser("edge");
 		WebUtility.navigateURL("https://www.wikipedia.org");
 		WebUtility.page.selectOption("#searchLanguage","hi");
